@@ -1,5 +1,7 @@
 <h1>Menu Tracker</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>{{menuLength}} foods total</p>
+<p>{{availableItems.length}} foods available</p>
 
 <ul>
   {{#each model as |food|}}
@@ -10,6 +12,11 @@
       {{else}}
         NO
       {{/if}}
+
+      <button {{action "destroyItem" food}}>X</button>
     </li>
   {{/each}}
 </ul>
+<hr>
+{{input value=newItem}}
+<button {{action 'saveNewItem'}}>Save</button>
