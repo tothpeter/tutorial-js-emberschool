@@ -5,8 +5,8 @@ export default Controller.extend({
   menuLength: computed.alias('model.length'),
   availableItems: computed.filterBy('model', 'isAvailable', true),
   actions: {
-    makeUnavailable(food) {
-      set(food, 'isAvailable', false);
+    toggleAvailability(food) {
+      food.toggleProperty('isAvailable');
       food.save();
     },
 

@@ -1,3 +1,11 @@
+.not-available {
+  color: gray;
+}
+
+.not-available a {
+  color: gray;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;

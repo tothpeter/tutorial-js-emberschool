@@ -7,13 +7,15 @@
 
     <ul>
       {{#each model as |food|}}
-        <li>
+        <li class="{{if food.isAvailable '' 'not-available'}}">
           {{#link-to "foods.food" food}}{{food.name}}{{/link-to}}
-          {{#if food.isAvailable}}
-            <button {{action "makeUnavailable" food}}>Make unavailable</button>
-          {{else}}
-            NO
-          {{/if}}
+          <button {{action "toggleAvailability" food}}>
+            {{#if food.isAvailable}}
+              Make unavailable
+            {{else}}
+              Make available
+            {{/if}}
+          </button>
         </li>
       {{/each}}
     </ul>
