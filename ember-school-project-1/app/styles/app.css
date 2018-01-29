@@ -1,0 +1,8 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-container .flex-item {
+  padding: 10px;
+}
