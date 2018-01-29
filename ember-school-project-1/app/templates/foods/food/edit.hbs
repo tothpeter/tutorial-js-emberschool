@@ -1,0 +1,5 @@
+<p>Name: {{input value=model.name}}</p>
+<p>Description: {{textarea value=model.description class="medium-text-area"}}</p>
+<p>Available: {{input type="checkbox" checked=model.isAvailable}}</p>
+
+<button {{action 'save'}}>Save</button>

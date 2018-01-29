@@ -6,3 +6,8 @@
 .flex-container .flex-item {
   padding: 10px;
 }
+
+.medium-text-area {
+  height: 50px;
+  width: 300px;
+}
