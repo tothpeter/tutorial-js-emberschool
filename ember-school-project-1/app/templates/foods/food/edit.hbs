@@ -3,6 +3,6 @@
 <p>Available: {{input type="checkbox" checked=model.isAvailable}}</p>
 <p>Image URL: {{input value=model.imageUrl}}</p>
 
-<img src={{model.imageUrl}} class="img-icon">
+{{icon-image src=model.imageUrl}}
 <br>
 <button {{action 'save'}}>Save</button>
