@@ -1,8 +1,12 @@
 <div class="food-item {{if food.isAvailable '' 'not-available'}}">
   <div {{action 'toggleOpen'}} class="title-bar">{{food.name}} <span class="pull-right">{{if isOpen 'V' '>'}}</span></div>
   {{#if isOpen}}
-    <div class="description">{{food.description}}</div>
+    <div class="description">
+      <img src="{{food.imageUrl}}" class="img-icon pull-left">
+      {{food.description}}
+    </div>
     {{#link-to "foods.food" food}}<button>Show page</button>{{/link-to}}
+    {{#link-to "foods.food.edit" food}}<button>Edit</button>{{/link-to}}
     <button {{action "toggleAvailability" food}}>
       Make {{if food.isAvailable 'unavailable' 'available'}}
     </button>

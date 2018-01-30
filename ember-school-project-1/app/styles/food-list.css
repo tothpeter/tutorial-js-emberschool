@@ -23,3 +23,14 @@
 .food-item .description {
   padding: 8px;
 }
+
+.food-item .description:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img-icon {
+  max-width: 120px;
+  padding: 0 5px 5px 0;
+}
