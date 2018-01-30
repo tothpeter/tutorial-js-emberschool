@@ -1,0 +1,25 @@
+.not-available {
+  color: gray;
+}
+
+.not-available a {
+  color: gray;
+}
+
+.food-item {
+  max-width: 250px;
+  padding: 6px;
+  margin-bottom: 4px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+.food-item .title-bar {
+  font-size: 1.3em;
+}
+
+.food-item .description {
+  padding: 8px;
+}

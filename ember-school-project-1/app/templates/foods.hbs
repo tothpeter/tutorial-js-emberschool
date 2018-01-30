@@ -5,11 +5,9 @@
     <p>{{menuLength}} foods total</p>
     <p>{{availableItems.length}} foods available</p>
 
-    <ul>
-      {{#each model as |food|}}
-        {{food-item food=food}}
-      {{/each}}
-    </ul>
+    {{#each model as |food|}}
+      {{food-item food=food}}
+    {{/each}}
     <hr>
     {{input value=newItem}}
     <button {{action 'saveNewItem'}}>Save</button>

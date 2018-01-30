@@ -1,10 +1,4 @@
-.not-available {
-  color: gray;
-}
-
-.not-available a {
-  color: gray;
-}
+@import url("food-list.css");
 
 .flex-container {
   display: flex;
@@ -18,4 +12,8 @@
 .medium-text-area {
   height: 50px;
   width: 300px;
+}
+
+.pull-right {
+  float: right;
 }
