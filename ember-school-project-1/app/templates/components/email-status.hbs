@@ -1,1 +1,7 @@
-Thanks for visiting {{pageName}} page. You can contact me: ...
+<div class="email-status">
+  <p>Thanks for visiting {{pageName}} page. You can contact me: ...</p>
+
+  {{#if hasBlock}}
+    <p>{{yield}}</p>
+  {{/if}}
+</div>
