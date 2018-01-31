@@ -1,11 +1,15 @@
-<h1>Restaurants</h1>
-
-<ul>
-  {{#each model as |restaurant|}}
-    <li>
-      {{#link-to 'restaurants.restaurant' restaurant.id}}{{restaurant.name}}{{/link-to}}
-    </li>
-  {{/each}}
-</ul>
-
-{{outlet}}
+<div class="flex-container">
+  <div class="flex-item">
+    <h1>Restaurants</h1>
+    <ul>
+      {{#each model as |restaurant|}}
+        <li>
+          {{#link-to 'restaurants.restaurant' restaurant.id}}{{restaurant.name}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="flex-item">
+  {{outlet}}
+  </div>
+</div>
