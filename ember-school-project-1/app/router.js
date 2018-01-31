@@ -14,6 +14,9 @@ Router.map(function() {
   this.route('about');
   this.route('contact');
   this.route('favorite-word', { path: 'favorite-word/:word' });
+  this.route('restaurants', function() {
+    this.route('restaurant', { path: ':restaurant_id' });
+  });
 });
 
 export default Router;
