@@ -8,5 +8,6 @@ export default DS.Model.extend({
   description: attr('string'),
   isAvailable: attr('boolean'),
 
-  restaurant: belongsTo()
+  restaurant: belongsTo(),
+  course: attr('string')
 });

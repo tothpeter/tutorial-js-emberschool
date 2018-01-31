@@ -5,4 +5,13 @@
 
 {{icon-image model.imageUrl}}
 <br>
+
+{{#x-select value=model.course action=(action (mut model.course)) as |xs|}}
+  {{#xs.option value='Appetizer'}}Appetizer{{/xs.option}}
+  {{#xs.option value='Entree'}}Entree{{/xs.option}}
+  {{#xs.option value='Dessert'}}Dessert{{/xs.option}}
+{{/x-select}}
+
+
+<br>
 <button {{action 'save'}}>Save</button>
