@@ -1,2 +1,11 @@
 <h1>{{model.name}}</h1>
+
+<p>Foods available:</p>
+
+<ul>
+  {{#each model.foods as |food|}}
+    <li>{{food.name}}</li>
+  {{/each}}
+</ul>
+
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}
