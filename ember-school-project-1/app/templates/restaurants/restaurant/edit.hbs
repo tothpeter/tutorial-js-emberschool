@@ -1,11 +1,19 @@
-<h1>Editing {{model.name}}</h1>
+<h1>Editing {{model.restaurant.name}}</h1>
 
-<p>Name: {{input value=model.name}}</p>
+<p>Name: {{input value=model.restaurant.name}}</p>
 
+<button {{action 'save'}}>Save</button>
+
+<h3>Current foods</h3>
 <ul>
-  {{#each model.foods as |food|}}
+  {{#each model.restaurant.foods as |food|}}
     <li>{{food.name}} <button {{action 'removeFood' food}}>Remove</button></li>
   {{/each}}
 </ul>
 
-<button {{action 'save'}}>Save</button>
+<h3>Other foods</h3>
+<ul>
+  {{#each otherFoods as |food|}}
+    <li>{{food.name}} <button {{action 'addFood' food}}>Add</button></li>
+  {{/each}}
+</ul>
