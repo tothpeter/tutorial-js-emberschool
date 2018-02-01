@@ -1,17 +1,23 @@
-<p>Name: {{input value=model.name}}</p>
-<p>Description: {{textarea value=model.description class="medium-text-area"}}</p>
-<p>Available: {{input type="checkbox" checked=model.isAvailable}}</p>
-<p>Image URL: {{input value=model.imageUrl}}</p>
+<p>Name: {{input value=model.food.name}}</p>
+<p>Description: {{textarea value=model.food.description class="medium-text-area"}}</p>
+<p>Available: {{input type="checkbox" checked=model.food.isAvailable}}</p>
+<p>Image URL: {{input value=model.food.imageUrl}}</p>
 
-{{icon-image model.imageUrl}}
+{{icon-image model.food.imageUrl}}
 <br>
 
-{{#x-select value=model.course action=(action (mut model.course)) as |xs|}}
+{{#x-select value=model.food.course action=(action (mut model.food.course)) as |xs|}}
   {{#xs.option value='Appetizer'}}Appetizer{{/xs.option}}
   {{#xs.option value='Entree'}}Entree{{/xs.option}}
   {{#xs.option value='Dessert'}}Dessert{{/xs.option}}
 {{/x-select}}
 
+<br>
+{{#x-select value=model.food.restaurant action=(action (mut model.food.restaurant)) as |xs|}}
+  {{#each model.restaurants as |restaurant|}}
+    {{#xs.option value=restaurant}}{{restaurant.name}}{{/xs.option}}
+  {{/each}}
+{{/x-select}}
 
 <br>
 <button {{action 'save'}}>Save</button>
