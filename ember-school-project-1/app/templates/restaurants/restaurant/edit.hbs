@@ -2,4 +2,10 @@
 
 <p>Name: {{input value=model.name}}</p>
 
+<ul>
+  {{#each model.foods as |food|}}
+    <li>{{food.name}} <button {{action 'removeFood' food}}>Remove</button></li>
+  {{/each}}
+</ul>
+
 <button {{action 'save'}}>Save</button>
