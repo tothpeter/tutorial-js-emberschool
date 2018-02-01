@@ -13,7 +13,8 @@
 {{/x-select}}
 
 <br>
-{{#x-select value=model.food.restaurant action=(action (mut model.food.restaurant)) as |xs|}}
+
+{{#x-select value=model.food.restaurant.content action="selectRestaurant" as |xs|}}
   {{#each model.restaurants as |restaurant|}}
     {{#xs.option value=restaurant}}{{restaurant.name}}{{/xs.option}}
   {{/each}}
