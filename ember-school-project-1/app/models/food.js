@@ -12,6 +12,8 @@ export default DS.Model.extend({
   restaurant: belongsTo(),
   course: attr('string'),
 
+  health: attr('number'),
+
   excitedName: computed('name', 'isAvailable', function() {
     let exclaim = this.get('name') + '!!!!';
 

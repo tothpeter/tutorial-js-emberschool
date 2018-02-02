@@ -1,5 +1,6 @@
 <h1>{{model.name}}</h1>
 <p>{{model.description}}</p>
+<p>Health {{model.health}}/10</p>
 <p>Restaurant: {{model.restaurant.name}} as a {{model.course}}</p>
 {{link-to "edit" "foods.food.edit" model.id}}
 <button {{action "destroyItem"}}>X</button>
