@@ -10,7 +10,7 @@
 
 {{#if model.foods}}
   <p>Max health: {{model.maxHealth}}/10</p>
-  <p>Avg health: {{round model.avgHealth}}/10</p>
+  <p>Avg health: {{round model.avgHealth 2}}/10</p>
 {{/if}}
 
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}
