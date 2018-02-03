@@ -11,6 +11,4 @@ export function ratingBar([rating, inputWidth], { color = 'blue' }) {
   `);
 }
 
-
-
 export default helper(ratingBar);
