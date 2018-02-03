@@ -9,12 +9,16 @@
 </ul>
 
 {{#if model.foods}}
-  <p>Max health: {{model.maxHealth}}/10</p>
-  <p>
-    Avg health: {{round model.avgHealth 2}}/10
-    {{rating-bar model.avgHealth color='red'}}
-    {{rating-bar-component model.avgHealth color='red'}}
-  </p>
+  {{#if (eq model.foods.length 1)}}
+    <p>Only one</p>
+  {{else}}
+    <p>Max health: {{model.maxHealth}}/10</p>
+    <p>
+      Avg health: {{round model.avgHealth 2}}/10
+      {{rating-bar model.avgHealth color='red'}}
+      {{rating-bar-component model.avgHealth color='red'}}
+    </p>
+  {{/if}}
 {{/if}}
 
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}
