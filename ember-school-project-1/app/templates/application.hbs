@@ -5,7 +5,7 @@
 
 <span class="pull-right">
   {{#if session.currentUser}}
-    Welcome {{session.currentUser.displayName}}
+    Welcome {{session.currentUser.displayName}} <button {{action 'logout'}}>Logout</button>
   {{else}}
     {{link-to 'Login' 'login'}}
   {{/if}}

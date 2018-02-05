@@ -4,7 +4,7 @@ export default Controller.extend({
   session: Ember.inject.service(),
   actions: {
     login(user) {
-      this.set('session.currentUser', user);
+      this.get('session').login(user);
     }
   }
 });
