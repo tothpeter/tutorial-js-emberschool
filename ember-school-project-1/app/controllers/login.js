@@ -3,8 +3,8 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   session: Ember.inject.service(),
   actions: {
-    login(user) {
-      this.get('session').login(user);
+    login(email, password) {
+      this.get('session').login(email, password);
     }
   }
 });

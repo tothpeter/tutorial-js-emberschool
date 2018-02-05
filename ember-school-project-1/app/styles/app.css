@@ -39,3 +39,16 @@
   height: 100%;
   display: block;
 }
+
+.field {
+  padding-bottom: 8px;
+}
+
+.field input {
+  width: 200px;
+}
+
+.field label {
+  display: block;
+  color: #000;
+}
