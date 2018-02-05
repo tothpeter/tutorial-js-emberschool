@@ -19,7 +19,7 @@ export default Service.extend({
   },
 
   login(email, password) {
-    this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
+    return this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
       let user = users.objectAt(0);
 
       console.log(user.get('password'));
@@ -27,6 +27,8 @@ export default Service.extend({
       if (user && user.get('password') === password) {
         this.set('currentUser', user);
         this.get('cookies').write('currentUserId', user.id);
+      } else {
+        return Ember.RSVP.reject();
       }
     });
   },
