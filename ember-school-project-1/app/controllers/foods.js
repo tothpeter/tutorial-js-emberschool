@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { set, computed } from '@ember/object';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   menuLength: computed.alias('model.length'),

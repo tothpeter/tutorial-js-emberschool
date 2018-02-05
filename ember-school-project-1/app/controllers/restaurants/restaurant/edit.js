@@ -1,7 +1,8 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
-  otherFoods: Ember.computed.setDiff('model.foods', 'model.restaurant.foods'),
+  otherFoods: computed.setDiff('model.foods', 'model.restaurant.foods'),
 
   actions: {
     save() {

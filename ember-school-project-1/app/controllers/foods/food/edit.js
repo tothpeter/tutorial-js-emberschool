@@ -7,7 +7,7 @@ export default Controller.extend({
       this.transitionToRoute('foods.food', this.model.food.id);
     },
 
-    selectRestaurant(newlySelectedRestaurant, _componenet) {
+    selectRestaurant(newlySelectedRestaurant) {
       let food = this.model.food;
 
       food.get('restaurant').then((originallySelectedRestaurant) => {
