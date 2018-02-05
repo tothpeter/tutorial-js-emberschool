@@ -1,0 +1,6 @@
+<h1>Login</h1>
+{{#each model as |user|}}
+  <div class="">
+    {{user.displayName}} <button {{action 'login' user}}>Login</button>
+  </div>
+{{/each}}

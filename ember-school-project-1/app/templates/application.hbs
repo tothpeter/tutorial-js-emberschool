@@ -2,6 +2,14 @@
 {{link-to 'Restaurants' 'restaurants'}}
 {{link-to 'About' 'about'}}
 {{link-to 'Contact' 'contact'}}
+
+<span class="pull-right">
+  {{#if session.currentUser}}
+    Welcome {{session.currentUser.displayName}}
+  {{else}}
+    {{link-to 'Login' 'login'}}
+  {{/if}}
+</span>
 <hr>
 
 {{outlet}}
