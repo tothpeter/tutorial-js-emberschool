@@ -22,8 +22,6 @@ export default Service.extend({
     return this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
       let user = users.objectAt(0);
 
-      console.log(user.get('password'));
-
       if (user && user.get('password') === password) {
         this.set('currentUser', user);
         this.get('cookies').write('currentUserId', user.id);

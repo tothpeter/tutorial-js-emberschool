@@ -11,5 +11,9 @@
   {{/if}}
 </span>
 <hr>
-
+<div class="flash-messages">
+  {{#each flashMessages.queue as |flashMessage|}}
+    {{flash-message flash=flashMessage}}
+  {{/each}}
+</div>
 {{outlet}}

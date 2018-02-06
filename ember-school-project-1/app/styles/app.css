@@ -52,3 +52,10 @@
   display: block;
   color: #000;
 }
+
+.alert-danger {
+  color: red;
+}
+.alert-success {
+  color: green;
+}
