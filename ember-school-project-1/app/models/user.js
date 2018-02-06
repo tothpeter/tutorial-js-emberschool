@@ -4,6 +4,14 @@ import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
   displayName: validator('presence', true),
+  email: [
+    validator('presence', true),
+    validator('format', { type: 'email' })
+  ],
+  password: [
+    validator('presence', true),
+    validator('length', { min: 3 })
+  ]
 });
 
 export default DS.Model.extend(Validations, {

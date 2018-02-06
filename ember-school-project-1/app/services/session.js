@@ -48,7 +48,7 @@ export default Service.extend({
           if (validations.get('isValid')) {
             return model.save();
           } else {
-            return Ember.RSVP.reject('Is not valid');
+            return Ember.RSVP.reject(validations.get('errors'));
           }
         })
         .then((user) => {
