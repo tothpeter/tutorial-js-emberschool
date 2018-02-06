@@ -1,0 +1,18 @@
+<h1>Register</h1>
+
+<div class="field">
+  <label for="">Display Name</label>
+  {{input value=displayName}}
+</div>
+
+<div class="field">
+  <label for="">Email</label>
+  {{input value=email}}
+</div>
+
+<div class="field">
+  <label for="">Password</label>
+  {{input type="password" value=password}}
+</div>
+
+<button {{action 'register' displayName email password}}>Register</button>

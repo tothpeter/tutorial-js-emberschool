@@ -23,15 +23,29 @@ export default Service.extend({
       let user = users.objectAt(0);
 
       if (user && user.get('password') === password) {
-        this.set('currentUser', user);
-        this.get('cookies').write('currentUserId', user.id);
+        this.loginWithUser(user);
       } else {
         return Ember.RSVP.reject();
       }
     });
   },
+
+  loginWithUser(user) {
+    this.set('currentUser', user);
+    this.get('cookies').write('currentUserId', user.id);
+  },
+
   logout() {
     this.set('currentUser', null);
     this.get('cookies').clear('currentUserId');
+  },
+
+  register(displayName, email, password) {
+    return this.get('store')
+        .createRecord('user', { displayName: displayName, email: email, password: password })
+        .save()
+        .then((user) => {
+          this.loginWithUser(user);
+        });
   }
 });
