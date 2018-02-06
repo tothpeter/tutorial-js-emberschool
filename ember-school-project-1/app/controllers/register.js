@@ -8,8 +8,8 @@ export default Controller.extend({
       this.get('session').register(displayName, email, password).then(() => {
         this.get('flashMessages').success('You have successfully registered.');
         this.transitionToRoute('restaurants');
-      }).catch(() => {
-        this.get('flashMessages').danger('Some error happened');
+      }).catch((reason) => {
+        this.get('flashMessages').danger('Some error happened: ' + reason);
       });
     }
   }

@@ -43,9 +43,16 @@ export default Service.extend({
   register(displayName, email, password) {
     return this.get('store')
         .createRecord('user', { displayName, email, password })
-        .save()
+        .validate()
+        .then(({model, validations}) => {
+          if (validations.get('isValid')) {
+            return model.save();
+          } else {
+            return Ember.RSVP.reject('Is not valid');
+          }
+        })
         .then((user) => {
-          this.loginWithUser(user);
+          return this.loginWithUser(user);
         });
   }
 });
