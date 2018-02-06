@@ -42,7 +42,7 @@ export default Service.extend({
 
   register(displayName, email, password) {
     return this.get('store')
-        .createRecord('user', { displayName: displayName, email: email, password: password })
+        .createRecord('user', { displayName, email, password })
         .save()
         .then((user) => {
           this.loginWithUser(user);
