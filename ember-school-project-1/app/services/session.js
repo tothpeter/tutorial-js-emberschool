@@ -1,9 +1,11 @@
 import Service from '@ember/service';
+import { inject as service } from '@ember/service';
+import RSVP from 'rsvp';
 
 export default Service.extend({
-  cookies: Ember.inject.service(),
-  store: Ember.inject.service(),
-  firebase: Ember.inject.service('firebaseApp'),
+  cookies: service(),
+  store: service(),
+  firebase: service('firebaseApp'),
 
   currentUser: null,
 
@@ -14,8 +16,7 @@ export default Service.extend({
     if (currentUserId) {
       this.get('store').findRecord('user', currentUserId).then((user) => {
         this.set('currentUser', user);
-      })
-
+      });
     }
   },
 
@@ -55,7 +56,7 @@ export default Service.extend({
               return model.save();
             });
           } else {
-            return Ember.RSVP.reject(validations.get('errors'));
+            return RSVP.reject(validations.get('errors'));
           }
         })
         .then((user) => {
