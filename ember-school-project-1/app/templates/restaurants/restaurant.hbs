@@ -1,7 +1,16 @@
 {{heading model.name}}
 
-<p>Foods available:</p>
-<p>Owner: {{model.user.displayName}}</p>
+{{#if model.user}}
+  <p>Foods available:</p>
+  <p>
+    Owner: {{model.user.displayName}}
+    {{#if (eq model.user.id session.currentUser.id)}}
+      <button {{action 'sellRestaurant' model}}>Sell</button>
+    {{/if}}
+  </p>
+{{else}}
+  <p>This restaurant is unclaimed; <button {{action 'buyRestaurant' model}}>Buy</button></p>
+{{/if}}
 
 <ul>
   {{#each model.foods as |food|}}
