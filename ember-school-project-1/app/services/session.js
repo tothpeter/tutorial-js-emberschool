@@ -23,9 +23,7 @@ export default Service.extend({
     let auth = this.get('firebase').auth();
 
     return auth.signInWithEmailAndPassword(email, password).then((firebaseUser) => {
-      this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
-        let user = users.objectAt(0);
-
+      this.get('store').findRecord('user', firebaseUser.uid).then((user) => {
         this.loginWithUser(user);
       });
     });
@@ -39,15 +37,23 @@ export default Service.extend({
   logout() {
     this.set('currentUser', null);
     this.get('cookies').clear('currentUserId');
+
+    let auth = this.get('firebase').auth();
+    auth.signOut();
   },
 
   register(displayName, email, password) {
+    let auth = this.get('firebase').auth();
+
     return this.get('store')
-        .createRecord('user', { displayName, email, password })
+        .createRecord('user', { displayName, email })
         .validate()
         .then(({model, validations}) => {
           if (validations.get('isValid')) {
-            return model.save();
+            return auth.createUserWithEmailAndPassword(email, password).then((firebaseUser) => {
+              model.set('id', firebaseUser.uid);
+              return model.save();
+            });
           } else {
             return Ember.RSVP.reject(validations.get('errors'));
           }
