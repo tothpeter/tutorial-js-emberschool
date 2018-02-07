@@ -3,6 +3,7 @@ import Service from '@ember/service';
 export default Service.extend({
   cookies: Ember.inject.service(),
   store: Ember.inject.service(),
+  firebase: Ember.inject.service('firebaseApp'),
 
   currentUser: null,
 
@@ -19,14 +20,14 @@ export default Service.extend({
   },
 
   login(email, password) {
-    return this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
-      let user = users.objectAt(0);
+    let auth = this.get('firebase').auth();
 
-      if (user && user.get('password') === password) {
+    return auth.signInWithEmailAndPassword(email, password).then((firebaseUser) => {
+      this.get('store').query('user', { orderBy: 'email', equalTo: email }).then((users) => {
+        let user = users.objectAt(0);
+
         this.loginWithUser(user);
-      } else {
-        return Ember.RSVP.reject();
-      }
+      });
     });
   },
 
