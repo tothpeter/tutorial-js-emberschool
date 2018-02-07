@@ -1,6 +1,7 @@
 {{heading model.name}}
 
 <p>Foods available:</p>
+<p>Owner: {{model.user.displayName}}</p>
 
 <ul>
   {{#each model.foods as |food|}}
