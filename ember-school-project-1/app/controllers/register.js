@@ -12,8 +12,19 @@ export default Controller.extend({
         this.get('flashMessages').success('You have successfully registered.');
         this.transitionToRoute('restaurants');
       }).catch((errors) => {
+        if (!Ember.isArray(errors)) {
+          errors = [ errors ];
+        }
+
         errors.forEach((error) => {
-          let message = `Error on ${error.attribute}: ${error.message}`;
+          let message = ""
+
+          if (error.attribute) {
+            message += `Error on ${error.attribute}: `;
+          }
+
+          message += error.message;
+
           this.get('flashMessages').danger(message, {sticky: true});
         });
 
