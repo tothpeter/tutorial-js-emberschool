@@ -1,0 +1,8 @@
+<h1>{{me.displayName}}</h1>
+
+<h3>Restaurants:</h3>
+<ul>
+  {{#each me.restaurants as |restaurant|}}
+    <li>{{restaurant.name}}</li>
+  {{/each}}
+</ul>
