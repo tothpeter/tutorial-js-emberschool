@@ -7,15 +7,10 @@ const Validations = buildValidations({
   email: [
     validator('presence', true),
     validator('format', { type: 'email' })
-  ],
-  password: [
-    validator('presence', true),
-    validator('length', { min: 3 })
   ]
 });
 
 export default DS.Model.extend(Validations, {
   displayName: attr('string'),
-  email: attr('string'),
-  password: attr('string')
+  email: attr('string')
 });
