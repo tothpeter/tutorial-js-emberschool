@@ -1,7 +1,12 @@
-import { helper } from '@ember/component/helper';
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service';
 
-export function canEditFood([food, user]/*, hash*/) {
-  return user && food.get('restaurant.user.id') === user.get('id');
-}
+export default Helper.extend({
+  session: service(),
 
-export default helper(canEditFood);
+  compute([food]/*, hash*/) {
+    let currentUser = this.get('session.currentUser');
+
+    return currentUser && food.get('restaurant.user.id') === currentUser.get('id');
+  }
+});

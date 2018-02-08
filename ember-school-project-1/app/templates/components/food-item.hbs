@@ -8,7 +8,7 @@
       </div>
       {{#link-to "foods.food" food}}<button>Show page</button>{{/link-to}}
 
-      {{#if (can-edit-food food session.currentUser)}}
+      {{#if (can-edit-food food)}}
         {{#link-to "foods.food.edit" food.id}}<button>Edit</button>{{/link-to}}
         <button {{action "toggleAvailability" food}}>
           Make {{if food.isAvailable 'unavailable' 'available'}}
