@@ -7,10 +7,13 @@
         {{food.description}}
       </div>
       {{#link-to "foods.food" food}}<button>Show page</button>{{/link-to}}
-      {{#link-to "foods.food.edit" food.id}}<button>Edit</button>{{/link-to}}
-      <button {{action "toggleAvailability" food}}>
-        Make {{if food.isAvailable 'unavailable' 'available'}}
-      </button>
+
+      {{#if (can-edit-food food session.currentUser)}}
+        {{#link-to "foods.food.edit" food.id}}<button>Edit</button>{{/link-to}}
+        <button {{action "toggleAvailability" food}}>
+          Make {{if food.isAvailable 'unavailable' 'available'}}
+        </button>
+      {{/if}}
     {{/if}}
 
   </div>
